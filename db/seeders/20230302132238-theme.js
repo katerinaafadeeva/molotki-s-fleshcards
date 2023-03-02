@@ -1,20 +1,17 @@
-
+const topics = require('../../quizInfo/topics')
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface) {
-    await queryInterface.bulkInsert('Themes', [
-      {
-        topic: 'Questions from Chechen ppl',
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      },
-    ]);
+    const allTopics = await topics.map((el) => ({
+      topic: el.topic,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    }));
+    await queryInterface.bulkInsert('Themes', allTopics, {})
   },
 
   async down(queryInterface) {
     await queryInterface.bulkDelete('Themes');
   },
 };
-
-// коммент
