@@ -15,3 +15,5 @@ module.exports = {
     await queryInterface.bulkDelete('Answers');
   },
 };
+
+// коммент

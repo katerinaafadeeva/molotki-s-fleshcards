@@ -27,3 +27,5 @@ module.exports = {
     await queryInterface.dropTable('Themes');
   },
 };
+
+// коммент

@@ -34,3 +34,5 @@ module.exports = {
     await queryInterface.dropTable('Answers');
   },
 };
+
+// коммент

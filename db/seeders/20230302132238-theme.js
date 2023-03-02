@@ -16,3 +16,5 @@ module.exports = {
     await queryInterface.bulkDelete('Themes');
   },
 };
+
+// коммент
