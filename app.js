@@ -1,19 +1,22 @@
 require('@babel/register');
+
 const express = require('express');
-const morgan = require('morgan');
-// const path = require('path');
-// const renderComponents = require('./middleware/renderComponent');
-// const indexRouter = require('./routes/index.route');
-
+const logger = require('morgan');
 const app = express();
-const PORT = 3000;
+const config = require('./config/config');
+const homeRouter = require('./routes/home.routes');
+const mainRouter = require('./routes/main.routes');
 
-app.use(morgan('dev'));
+const PORT = process.env.PORT ?? 3000;
 
-app.get('/', (req, res) => {
-  res.send('HELLO WORLD');
-});
+config(app);
+
+app.use(logger('dev'));
+
+app.use('/', mainRouter);
+app.use('/home', homeRouter);
 
 app.listen(PORT, () => {
-  console.log(`ПАШЕМ НА ${PORT} ПОРТУ КОНЕЧНО`);
+  console.log(`Server started at ${PORT} port`);
+
 });
