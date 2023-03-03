@@ -7,17 +7,13 @@ function Navbar({ name }) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent ">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a
-                className="nav-link active text-dark fs-4"
-                aria-current="page"
-                href="/"
-              >
-                HOME
+              <a className="nav-link active text-dark fs-4" aria-current="page" href="/">
+                ACCOUNT
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link text-dark fs-4" href="/cards">
-                LOGIN
+                HOME
               </a>
             </li>
             <li className="nav-item">
