@@ -4,22 +4,22 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Question extends Model {
     static associate({ Answer }) {
-      Question.Answers = Question.hasOne(Answer, {
+      Question.Answer = Question.hasOne(Answer, {
         foreignKey: 'questionId',
-        as: 'answers',
+        as: 'answer',
       });
     }
   }
   Question.init(
     {
-      themesId: {
+      themeId: {
         type: DataTypes.INTEGER,
         references: {
           model: 'Themes',
           key: 'id',
         },
       },
-      questions: {
+      question: {
         type: DataTypes.TEXT,
         allowNull: false,
       },
