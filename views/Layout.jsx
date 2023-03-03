@@ -1,7 +1,7 @@
 const React = require('react');
 const Navbar = require('./Navbar');
 
-module.exports = function Layout({ title, children, name }) {
+function Layout({ title, children, name1 }) {
   return (
     <html lang="en">
       <head>
@@ -13,9 +13,10 @@ module.exports = function Layout({ title, children, name }) {
         <title>{title}</title>
       </head>
       <body className="bg-dark">
-        <Navbar name={name} />
+        <Navbar name1={name1} />
         {children}
       </body>
     </html>
   );
-};
+}
+module.exports = Layout;
