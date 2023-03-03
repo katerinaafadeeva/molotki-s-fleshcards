@@ -5,8 +5,10 @@ const logger = require('morgan');
 
 const app = express();
 const config = require('./config/config');
-const homeRouter = require('./routes/home.routes');
+// const homeRouter = require('./routes/home.routes');
 const mainRouter = require('./routes/main.routes');
+
+const regRouter = require('./routes/reg.routes');
 
 const cardRouter = require('./routes/card.routes');
 const gameRouter = require('./routes/game.router');
@@ -19,6 +21,10 @@ config(app);
 app.use(logger('dev'));
 
 app.use('/', mainRouter);
+
+app.use('/registration', regRouter);
+// app.use('/home', homeRouter);
+
 app.use('/home', homeRouter);
 
 app.use('/cards', cardRouter);
