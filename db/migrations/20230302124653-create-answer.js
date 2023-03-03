@@ -9,14 +9,14 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      questionsId: {
+      questionId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Questions',
           key: 'id',
         },
       },
-      answers: {
+      answer: {
         type: Sequelize.TEXT,
         allowNull: false,
       },
@@ -30,9 +30,7 @@ module.exports = {
       },
     });
   },
-  async down(queryInterface, Sequelize) {
+  async down(queryInterface) {
     await queryInterface.dropTable('Answers');
   },
 };
-
-// коммент
