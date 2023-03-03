@@ -1,7 +1,7 @@
 const React = require('react');
 const Navbar = require('./Navbar');
 
-module.exports = function Layout({ title, children, name }) {
+function Layout({ title, children, name1, name }) {
   return (
     <html lang="en">
       <head>
@@ -11,12 +11,14 @@ module.exports = function Layout({ title, children, name }) {
         <link rel="stylesheet" href="/css/bootstrap.min.css" />
 
         <script defer src="/game.js" />
+        <script defer src="/application.js" />
         <title>{title}</title>
       </head>
       <body className="bg-dark">
-        <Navbar name={name} />
+        <Navbar name1={name1} name={name} />
         {children}
       </body>
     </html>
   );
-};
+}
+module.exports = Layout;

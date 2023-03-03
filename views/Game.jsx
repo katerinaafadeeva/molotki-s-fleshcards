@@ -27,6 +27,7 @@ function Game({ questionText, answer, theme, questionId }) {
             alignContent: 'center',
           }}
         >
+
           <input
             id="answerInput"
             type="text"
