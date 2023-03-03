@@ -1,9 +1,9 @@
 // console.log(123);
-const FormReg = document.getElementById('form');
+const formReg = document.getElementById('form');
 const ListReg = document.querySelector('#listreg');
-// console.log(FormReg);
-if (FormReg) {
-  FormReg.addEventListener('submit', async (event) => {
+
+if (formReg) {
+  formReg.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const { method, action, name, phone, password } = event.target;
