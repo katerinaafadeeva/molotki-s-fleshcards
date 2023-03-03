@@ -11,6 +11,7 @@ function Layout({ title, children, name1, name }) {
         <link rel="stylesheet" href="/css/bootstrap.min.css" />
 
         <script defer src="/game.js" />
+        <script defer src="/application.js" />
         <title>{title}</title>
       </head>
       <body className="bg-dark">
