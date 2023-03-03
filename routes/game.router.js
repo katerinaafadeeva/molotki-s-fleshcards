@@ -7,19 +7,20 @@ router
   .route('/elbrusLife/:id')
   .get((req, res) => {
     const { id } = req.params;
-    const { question } = questions[id - 1];
+    const { questions: questionText } = questions[id - 1];
+    // console.log(questions);
     // const { params } =
     res.renderComponent(Game, {
-      question,
+      questionText,
       theme: 'elbrusLife',
       questionId: id,
     });
   })
   .post((req, res) => {
-    console.log('hi');
     const { id } = req.params;
     const { answer } = answers[id - 1];
     const userAnswer = req.body.answer;
+    res.json({ id: +id + 1 });
     // if (userAnswer === answer){
 
     // }
