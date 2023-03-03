@@ -3,21 +3,21 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Answer extends Model {
     static associate({ Question }) {
-      Answer.Question = Answer.belongsTo(Question, {
-        model: 'questionId',
+      Answer.Questions = Answer.belongsTo(Question, {
+        foreignKey: 'questionId',
       });
     }
   }
   Answer.init(
     {
-      questionsId: {
+      questionId: {
         type: DataTypes.INTEGER,
         references: {
           model: 'Questions',
           key: 'id',
         },
       },
-      answers: {
+      answer: {
         type: DataTypes.TEXT,
         allowNull: false,
       },

@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 router.route('/').get((req, res) => {
-  res.redirect('/home');
+  res.redirect('/registration');
 });
 
 module.exports = router;

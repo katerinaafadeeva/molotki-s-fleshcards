@@ -1,10 +1,10 @@
-//usestrict
 const { Model } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Theme extends Model {
-    static associate({ Question }) {
+    static associate({ Question}) {
       Theme.Questions = Theme.hasMany(Question, {
-        foreignKey: 'themesId',
+        foreignKey: 'themeId',
         as: 'questions',
       });
     }
@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: 'Theme',
-    }
+    },
   );
   return Theme;
 };
