@@ -16,7 +16,15 @@ gameButton.addEventListener('click', (e) => {
     .then((response) => {
       return response.json();
     })
-    .then((data) => {
-      window.location = `http://localhost:3000/game/${dataset.theme}/${data.id}`;
+    .then((data) => { //заменить начиная с этого!
+      if (data.id < 11) {
+        // Полная перезагрузка страницы!!
+        window.location.assign(
+          `http://localhost:3000/game/${dataset.theme}/${data.id}`,
+        );
+      } else {
+        // window.location = 'http://localhost:3000/cards';
+        window.location.assign(`http://localhost:3000/finish`);
+      }
     });
 });
