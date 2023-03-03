@@ -12,4 +12,5 @@ function Home({ title, name }) {
     </Layout>
   );
 }
+// lkqnkqwnd
 module.exports = Home;
