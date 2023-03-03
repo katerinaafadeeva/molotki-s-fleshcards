@@ -2,7 +2,8 @@
 const gameInput = document.querySelector('#answerInput');
 const gameButton = document.querySelector('#answerButton');
 
-gameButton.addEventListener('click', (e) => {
+gameButton?.addEventListener('click', (e) => {
+  e.preventDefault();
   const { dataset } = gameButton;
 
   console.log(dataset);
@@ -11,7 +12,7 @@ gameButton.addEventListener('click', (e) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ userAnswer: gameInput.value }),
+    body: JSON.stringify({ answer: gameInput.value }),
   })
     .then((response) => {
       return response.json();

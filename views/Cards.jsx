@@ -44,7 +44,7 @@ function Cards({ title }) {
           <h5 className="card-title">Special title treatment</h5>
           <p className="card-text text-white">Все о котиках</p>
           <a
-            href="/game/catslife"
+            href="/game/catslife/1"
             className="btn btn-primary"
             style={{ width: '150px' }}
           >
@@ -58,7 +58,7 @@ function Cards({ title }) {
           <h5 className="card-title">Special title treatment</h5>
           <p className="card-text text-white">Общие темы</p>
           <a
-            href="/game/generallife"
+            href="/game/generallife/1"
             className="btn btn-primary"
             style={{ width: '150px' }}
           >
