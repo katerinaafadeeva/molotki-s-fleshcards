@@ -1,37 +1,94 @@
 const router = require('express').Router();
-const Game = require('../views/Game');
-const questions = require('../quizInfo/questions');
-const answers = require('../quizInfo/answers');
+const Games = require('../views/Game');
+const {
+  questionsElbrus,
+  questionsCats,
+  questionsGeneral,
+} = require('../quizInfo/questions');
+const {
+  answersElbrus,
+  answersCats,
+  answersGeneral,
+} = require('../quizInfo/answers');
+const { Game } = require('../db/models');
 
 router
   .route('/elbrusLife/:id')
   .get((req, res) => {
     const { id } = req.params;
-    const { questions: questionText } = questions[id - 1];
+    const { questions: questionText } = questionsElbrus[id - 1];
     // console.log(questions);
     // const { params } =
-    res.renderComponent(Game, {
+    res.renderComponent(Games, {
       questionText,
       theme: 'elbrusLife',
       questionId: id,
     });
   })
-  .post((req, res) => {
+  .post(async (req, res) => {
     const { id } = req.params;
-    const { answer } = answers[id - 1];
+    const { answers } = answersElbrus[id - 1];
     const userAnswer = req.body.answer;
     res.json({ id: +id + 1 });
-    // if (userAnswer === answer){
-
-    // }
+    const score = questionsElbrus[id - 1].points;
+    const result = await Game.findOne({ where: { id: 1 } });
+    if (userAnswer === answers) {
+      result.score += score;
+      await Game.update({ score: result.score }, { where: { id: 1 } }); //id user
+      console.log(result.score);
+    }
+    return result;
   });
 
-router.route('/catslife').get((req, res) => {
-  res.renderComponent(Game, { title: 'game' });
-});
+router
+  .route('/catslife/:id')
+  .get((req, res) => {
+    const { id } = req.params;
+    const { questions: questionText } = questionsCats[id - 1];
+    res.renderComponent(Games, {
+      questionText,
+      theme: 'catslife',
+      questionId: id,
+    });
+  })
+  .post(async (req, res) => {
+    const { id } = req.params;
+    const { answer } = answersCats[id - 1];
+    const userAnswer = req.body.answer;
+    res.json({ id: +id + 1 });
+    const score = questionsCats[id - 1].points;
+    const result = await Game.findOne({ where: { id: 1 } });
 
-router.route('/generallife').get((req, res) => {
-  res.renderComponent(Game, { title: 'game' });
-});
+    if (userAnswer === answer) {
+      result.score += score;
+      await Game.update({ score: result.score }, { where: { id: 1 } }); //id user
+      console.log(result.score);
+    }
+  });
+
+router
+  .route('/generallife/:id')
+  .get((req, res) => {
+    const { id } = req.params;
+    const { questions: questionText } = questionsGeneral[id - 1];
+    res.renderComponent(Games, {
+      questionText,
+      theme: 'generallife',
+      questionId: id,
+    });
+  })
+  .post(async (req, res) => {
+    const { id } = req.params;
+    const { answer } = answersGeneral[id - 1];
+    const userAnswer = req.body.answer;
+    res.json({ id: +id + 1 });
+    const score = questionsGeneral[id - 1].points;
+    const result = await Game.findOne({ where: { id: 1 } });
+    if (userAnswer === answer) {
+      result.score += score;
+      await Game.update({ score: result.score }, { where: { id: 1 } }); //id user
+      console.log(result.score);
+    }
+  });
 
 module.exports = router;

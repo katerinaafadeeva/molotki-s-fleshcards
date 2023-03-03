@@ -1,9 +1,9 @@
-const allQuestions = require('../../quizInfo/questions');
+const allQuestions  = require('../../quizInfo/questions');
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface) {
-    const questions = await allQuestions.map((el) => ({
+    const questions = await allQuestions.questionsElbrus.map((el) => ({
       themeId: el.themesId,
       question: el.questions,
       points: el.points,
