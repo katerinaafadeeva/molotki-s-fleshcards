@@ -4,8 +4,8 @@ const allQuestions = require('../../quizInfo/questions');
 module.exports = {
   async up(queryInterface) {
     const questions = await allQuestions.map((el) => ({
-      themesId: el.themesId,
-      questions: el.questions,
+      themeId: el.themesId,
+      question: el.questions,
       points: el.points,
       createdAt: new Date(),
       updatedAt: new Date(),

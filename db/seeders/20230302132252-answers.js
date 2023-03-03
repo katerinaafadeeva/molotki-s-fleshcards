@@ -4,8 +4,8 @@ const allAnswers = require('../../quizInfo/answers')
 module.exports = {
   async up(queryInterface) {
     const answers = await allAnswers.map((el) => ({
-      questionsId: el.questionsId,
-      answers: el.answers,
+      questionId: el.questionsId,
+      answer: el.answers,
       createdAt: new Date(),
       updatedAt: new Date(),
     }));

@@ -1,4 +1,4 @@
-const topics = require('../../quizInfo/topics')
+const topics = require('../../quizInfo/topics');
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -8,7 +8,7 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date(),
     }));
-    await queryInterface.bulkInsert('Themes', allTopics, {})
+    await queryInterface.bulkInsert('Themes', allTopics, {});
   },
 
   async down(queryInterface) {
