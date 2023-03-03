@@ -3,8 +3,9 @@ module.exports = {
   async up(queryInterface) {
     await queryInterface.bulkInsert('Users', [
       {
-        name: 'Gohn Don',
-        score: 0,
+        name: 'Don Gohn',
+        phone: '+8 800 555 35 35',
+        password: 'test',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
