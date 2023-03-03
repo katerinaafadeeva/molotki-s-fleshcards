@@ -19,31 +19,50 @@ function Cards({ title, name }) {
       >
         <div
           className="card-body"
-          style={{ maxWidth: '300px', border: '2px solid black' }}
+          style={{
+            maxWidth: '300px',
+            border: '2px solid grey',
+          }}
         >
           <h5 className="card-title">Special title treatment</h5>
           <p className="card-text text-white">Жизнь Эльбруса</p>
-          <a href="/game/elbrusLife" className="btn btn-primary">
+          <a
+            href="/game/elbrusLife/1"
+            className="btn btn-primary"
+            style={{ width: '150px' }}
+          >
             play
           </a>
         </div>
         <div
           className="card-body"
-          style={{ maxWidth: '300px', border: '2px solid black' }}
+          style={{
+            maxWidth: '300px',
+            maxHeight: '200px',
+            border: '2px solid grey',
+          }}
         >
           <h5 className="card-title">Special title treatment</h5>
           <p className="card-text text-white">Все о котиках</p>
-          <a href="/game/catslife" className="btn btn-primary">
+          <a
+            href="/game/catslife"
+            className="btn btn-primary"
+            style={{ width: '150px' }}
+          >
             play
           </a>
         </div>
         <div
           className="card-body"
-          style={{ maxWidth: '300px', border: '2px solid black' }}
+          style={{ maxWidth: '300px', border: '2px solid grey' }}
         >
           <h5 className="card-title">Special title treatment</h5>
           <p className="card-text text-white">Общие темы</p>
-          <a href="/game/generallife" className="btn btn-primary">
+          <a
+            href="/game/generallife"
+            className="btn btn-primary"
+            style={{ width: '150px' }}
+          >
             play
           </a>
         </div>
