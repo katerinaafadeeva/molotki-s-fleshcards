@@ -1,7 +1,7 @@
 const React = require('react');
 const Navbar = require('./Navbar');
 
-function Layout({ title, children, name1 }) {
+function Layout({ title, children, name1, name }) {
   return (
     <html lang="en">
       <head>
@@ -14,7 +14,7 @@ function Layout({ title, children, name1 }) {
         <title>{title}</title>
       </head>
       <body className="bg-dark">
-        <Navbar name1={name1} />
+        <Navbar name1={name1} name={name} />
         {children}
       </body>
     </html>

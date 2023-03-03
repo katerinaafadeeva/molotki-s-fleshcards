@@ -4,10 +4,9 @@ const { User } = require('../db/models');
 
 router.route('/').get((req, res) => {
 
-  const arrContacts = await User.findAll();
+  const arrContacts = User.findAll();
 
-    res.renderComponent(Home, { title: 'Bewers', arrContacts });
-
+  res.renderComponent(Home, { title: 'Bewers', arrContacts });
 });
 
 module.exports = router;
