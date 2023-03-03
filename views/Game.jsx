@@ -4,6 +4,7 @@ const Layout = require('./Layout');
 function Game({ questionText, answer, theme, questionId }) {
   return (
     <Layout>
+
       <div
         className="card-body"
         style={{ maxWidth: '300px', border: '2px solid black' }}
