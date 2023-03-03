@@ -1,7 +1,8 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function Cards({ title }) {
+function Cards({ title, name }) {
+  console.log(name);
   return (
     <Layout title={title}>
       <h1>PRIVYAO</h1>

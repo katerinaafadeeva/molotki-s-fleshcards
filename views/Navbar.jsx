@@ -1,6 +1,7 @@
 const React = require('react');
 
 function Navbar({ name }) {
+  console.log(name);
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary bg-dark ">
       <div className="container-fluid">
@@ -29,7 +30,7 @@ function Navbar({ name }) {
                 style={{ marginLeft: '1100px' }}
               />
             </li>
-            {/* <h1 style={{ color: 'white' }}>{perem}</h1> */}
+            <h1 style={{ color: 'white' }}> {name}</h1>
           </ul>
         </div>
       </div>

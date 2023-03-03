@@ -1,12 +1,13 @@
-const FormReg = document.querySelector('#formreg');
+// console.log(123);
+const FormReg = document.getElementById('form');
 const ListReg = document.querySelector('#listreg');
-
+// console.log(FormReg);
 if (FormReg) {
   FormReg.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const { method, action, name, phone, password } = event.target;
-
+    // console.log(name, phone);
     // response ответ с сервера
     const response = await fetch(action, {
       method,
@@ -20,7 +21,7 @@ if (FormReg) {
       }),
     });
 
-    console.log(response);
+    // console.log(response);
 
     if (response.status === 400) {
       const data = await response.json();
@@ -28,11 +29,11 @@ if (FormReg) {
       alert(data.message);
     } else {
       //   метод text формирует ответ с сервера в нужном формате
-      const data = await response.text();
-
+      const data = await response.json();
       console.log(data);
-      ListReg.insertAdjacentHTML('beforeend', data);
-      // window.location.href = '/salumus';
+      if (data.message) {
+        window.location.href = '/cards';
+      }
     }
   });
 }

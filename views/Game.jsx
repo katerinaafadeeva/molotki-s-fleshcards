@@ -9,13 +9,13 @@ function Game({ question, answer }) {
         style={{ maxWidth: '300px', border: '2px solid black' }}
       >
         <p className="card-text text-white">{JSON.stringify(question)}</p>
-        <div class="input-group">
-          <div class="input-group-text" id="btnGroupAddon2">
+        <div className="input-group">
+          <div className="input-group-text" id="btnGroupAddon2">
             @
           </div>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             placeholder="Input group example"
             aria-label="Input group example"
             aria-describedby="btnGroupAddon2"
