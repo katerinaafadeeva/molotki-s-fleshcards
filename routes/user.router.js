@@ -8,8 +8,8 @@ router.route('/').post(async (req, res) => {
   if (name && phone && password) {
     const newContact = { name, phone, password };
     console.log(newContact);
-    await User.create(newContact);
-    res.app.locals.name = name;
+    const newUser = await User.create(newContact);
+    res.app.locals.user = { name: newUser.name, id: newUser.id };
     res.json({ message: 'ok' });
     // text/html
     // res.renderComponent(CardReg, { User: newContact }, { doctype: false });
